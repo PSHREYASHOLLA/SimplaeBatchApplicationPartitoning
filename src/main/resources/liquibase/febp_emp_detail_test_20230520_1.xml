@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+
+  <!--================================================================================ 
+    Table: febp_emp_detail_test ================================================================================ -->
+
+  <changeSet id="febp_emp_detail_test_create_table"
+    author="sample" context="test">
+    <createTable tableName="febp_emp_detail_test"
+      remarks="Stores primary information about employee salary amount">
+      <column name="entity_id" type="CHAR(36)"
+        remarks="Identifier of the Unified Security application.">
+        <constraints primaryKey="true"
+          primaryKeyName="febp_emp_detail_test_pk" nullable="false" />
+      </column>
+      <column name="emp_id" type="VARCHAR(80)"
+        remarks="Code associated with the employee. Read-only.">
+        <constraints nullable="false" />
+      </column>
+      <column name="emp_salary" type="BIGINT"
+        remarks="Employee Salary.">
+        <constraints nullable="true" />
+      </column>
+      <column name="tax_calculation_flag" type="CHAR(1)"
+        remarks="Flag to denote whether the tax calculation is applicable or not.">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>
